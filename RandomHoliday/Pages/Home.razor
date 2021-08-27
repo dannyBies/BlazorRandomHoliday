@@ -1,0 +1,19 @@
+﻿@page "/"
+@using System.ComponentModel.DataAnnotations
+@using System.Text.RegularExpressions
+
+<MudCarousel Style="height:100vh;" ShowArrows="false" ShowDelimiters="false" AutoCycle="true" AutoCycleTime="@TimeSpan.FromSeconds(10)" TData="object">
+    @foreach (var image in BackgroundImages)
+    {
+        <BackgroundImage ImageLocation="@image" />
+    }
+</MudCarousel>
+
+
+<div class="information-container">
+    <div class="website-information">
+        <h1>We’ll find your ideal holiday destination</h1>
+        <h4>Give us an idea of what you like - and we’ll do the rest</h4>
+    </div>
+    <HolidaySelector/>
+</div>

@@ -1,0 +1,1 @@
+Use kestrel instead of Docker until https://github.com/dotnet/aspnetcore/issues/35285 is fixed.

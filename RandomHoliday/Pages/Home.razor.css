@@ -1,0 +1,13 @@
+﻿.information-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+
+.website-information {
+    margin-top: 10vh;
+    color: white;
+    margin-bottom: 10vh;
+    text-align: center;
+}

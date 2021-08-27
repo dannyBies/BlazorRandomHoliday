@@ -1,0 +1,49 @@
+<div class="holiday-container">
+    <MudCard>
+        <MudCardContent>
+            <MudText 
+             Class="pb-4" 
+             Typo="Typo.h6">
+                Choose your holiday!
+            </MudText>
+            <MudForm @bind-IsValid="@IsFormValid">
+                <MudAutocomplete Variant="@Variant.Outlined" 
+                 RequiredError="You must choose a valid city" 
+                 DisableUnderLine="true" 
+                 DebounceInterval="400"
+                 Label="Start my adventure from" 
+                 Placeholder="Choose a city near you" 
+                 Required="true"
+                 SearchFunc="@SearchAsync" 
+                 @bind-Value="SelectedCity" 
+                 ResetValueOnEmptyText="true"
+                 MaxItems="5" Class="mb-2" />
+                <MudNumericField 
+                 OnBlur="@OnBlur" 
+                 Min="1" 
+                 @bind-Value="SelectedRange" 
+                 Required="true" 
+                 Label=@(selectedDistanceUnit == "km" ? "Max travel distance (km)" : "Max travel distance (miles)")
+                 Variant="Variant.Outlined" />
+                <MudButton 
+                 Size="Size.Small" 
+                 FullWidth="true" 
+                 OnClick=@(() => ToggleDistanceUnits())
+                 Class="d-flex justify-start" 
+                 Variant="Variant.Text" >
+                    Switch to @(selectedDistanceUnit == "km" ? "miles" : "kilometers")
+                 </MudButton>
+            </MudForm>
+        </MudCardContent>
+        <MudCardActions>
+            <MudButton 
+             Class="ml-auto" 
+             Variant="Variant.Text" 
+             Disabled="@(!IsFormValid)" 
+             OnClick=@(() => CalculateCity())
+             Color="Color.Primary">
+                Go on a holiday!
+            </MudButton>
+        </MudCardActions>
+    </MudCard>
+</div>
